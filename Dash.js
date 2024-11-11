@@ -13,11 +13,48 @@ import React from 'react';
 import { Avatar, Icon } from '@rneui/base';
 
 const tripData = [
-    { id: '1', label: 'On Going Trips', value: '10', color: '#316163' },
-    { id: '2', label: 'Upcoming Trips', value: '10', color: '#316163' },
-    { id: '3', label: 'Completed Trips', value: '5', color: '#316163' },
-    { id: '4', label: 'Cancelled Trips', value: '0', color: '#316163' },
+    {
+        id: '1',
+        serialNo: 1,
+        state: 'On Going',
+        vehicleNo: 'MH12AB1234',
+        address: 'Mumbai, Maharashtra',
+        speed: 60,
+        distance: 150,
+        gpsLocation: { latitude: 19.076, longitude: 72.8777 },
+    },
+    {
+        id: '2',
+        serialNo: 2,
+        state: 'Upcoming',
+        vehicleNo: 'DL8CAB5678',
+        address: 'Delhi, India',
+        speed: 0,
+        distance: 200,
+        gpsLocation: { latitude: 28.7041, longitude: 77.1025 },
+    },
+    {
+        id: '3',
+        serialNo: 3,
+        state: 'Completed',
+        vehicleNo: 'KA03CD9876',
+        address: 'Bangalore, Karnataka',
+        speed: 0,
+        distance: 120,
+        gpsLocation: { latitude: 12.9716, longitude: 77.5946 },
+    },
+    {
+        id: '4',
+        serialNo: 4,
+        state: 'Cancelled',
+        vehicleNo: 'TN01EF3456',
+        address: 'Chennai, Tamil Nadu',
+        speed: 0,
+        distance: 0,
+        gpsLocation: { latitude: 13.0827, longitude: 80.2707 },
+    },
 ];
+
 
 const Dash = () => {
     return (
@@ -204,7 +241,6 @@ const Dash = () => {
                                     paddingHorizontal: 10,
                                     borderTopRightRadius: 25,
                                     borderTopLeftRadius: 25,
-
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     marginTop: 80,
@@ -214,27 +250,27 @@ const Dash = () => {
                                     shadowOpacity: 0.25,
                                     shadowRadius: 3.5,
                                     elevation: 5,
-                                    // marginBottom: 20,
                                     flex: 1,
-                                }}>
+                                }}
+                            >
                                 <View
                                     style={{
                                         width: '95%',
                                         height: '80%',
                                         paddingHorizontal: 10,
                                         justifyContent: 'space-between',
-                                        // backgroundColor: 'red',
                                         marginBottom: 10,
                                         marginTop: 40,
-                                    }}>
+                                    }}
+                                >
                                     <View
                                         style={{
                                             flexDirection: 'row',
-                                            // justifyContent: '',
                                             alignItems: 'center',
                                             marginBottom: 10,
                                             marginTop: 10,
-                                        }}>
+                                        }}
+                                    >
                                         <Text
                                             style={{
                                                 color: 'black',
@@ -243,7 +279,8 @@ const Dash = () => {
                                                 marginBottom: 10,
                                                 marginTop: 10,
                                                 marginLeft: 15,
-                                            }}>
+                                            }}
+                                        >
                                             On Going Trips
                                         </Text>
                                     </View>
@@ -252,95 +289,93 @@ const Dash = () => {
                                         style={{
                                             width: '105%',
                                             height: '85%',
-                                            paddingHorizontal: 10,
-                                            justifyContent: 'center',
-                                            // backgroundColor: 'green',
+                                            justifyContent: 'space-evenly',
                                             alignSelf: 'center',
                                             marginBottom: 10,
-                                        }}>
-                                        <FlatList
-                                            data={tripData}
-                                            keyExtractor={item => item.toString()}
-                                            renderItem={({ item }) => (
-                                                <TouchableOpacity
-                                                    style={{
-                                                        marginBottom: 10,
-                                                        width: '100%',
-                                                        justifyContent: 'space-between',
-                                                        padding: 15,
-                                                        backgroundColor: 'white',
-                                                        borderRadius: 8,
-                                                        height: 105,
-                                                        marginTop: 10,
-                                                        flexDirection: 'row',
-                                                    }}>
-                                                    <View
-                                                        style={{
-                                                            width: '60%',
-                                                            height: '100%',
-                                                            justifyContent: 'center',
-                                                            alignItems: 'flex-start',
-                                                            marginLeft: 10,
-                                                            // backgroundColor: 'yellow',
-                                                        }}>
-                                                        <Text
-                                                            style={{
-                                                                fontSize: 14,
-                                                                fontWeight: 'bold',
-                                                                marginBottom: 5,
-                                                                marginTop: 5,
-                                                                marginLeft: 5,
-                                                                color: '#000',
-                                                                // backgroundColor: 'green',
-                                                            }}>
-                                                            Vehicle {item.id}
-                                                        </Text>
-                                                        <Text
-                                                            style={{
-                                                                fontSize: 14,
-                                                                fontWeight: 'bold',
-                                                                marginBottom: 5,
-                                                                marginTop: 5,
-                                                                marginLeft: 5,
-                                                                color: '#000',
-                                                                // backgroundColor: 'green',
-                                                            }}>
-                                                            Driver
-                                                        </Text>
+                                        }}
+                                    >
+                                        {/* Fixed Table Header */}
+                                        <View
+                                            style={{
+                                                flexDirection: 'row',
+                                                justifyContent: 'space-between',
+                                                alignItems: 'center',
+                                                backgroundColor: '#316163',
+                                                padding: 15,
+                                                borderTopLeftRadius: 8,
+                                                borderTopRightRadius: 8,
+                                            }}
+                                        >
+                                            <Text style={{ width: '10%', fontSize: 14, fontWeight: 'bold', color: 'white' }}>S.No</Text>
+                                            <Text style={{ width: '15%', fontSize: 14, fontWeight: 'bold', color: 'white' }}>State</Text>
+                                            <Text style={{ width: '15%', fontSize: 14, fontWeight: 'bold', color: 'white' }}>Vehicle No</Text>
+                                            <Text style={{ width: '20%', fontSize: 14, fontWeight: 'bold', color: 'white' }}>Address</Text>
+                                            <Text style={{ width: '10%', fontSize: 14, fontWeight: 'bold', color: 'white' }}>Speed</Text>
+                                            <Text style={{ width: '10%', fontSize: 14, fontWeight: 'bold', color: 'white' }}>Distance</Text>
+                                            <Text style={{ width: '20%', fontSize: 14, fontWeight: 'bold', color: 'white' }}>GPS</Text>
+                                        </View>
 
-                                                        <Text
-                                                            style={{
-                                                                fontSize: 14,
-                                                                fontWeight: 'bold',
-                                                                marginBottom: 5,
-                                                                marginTop: 5,
-                                                                marginLeft: 5,
-                                                                color: '#000',
-                                                                // backgroundColor: 'green',
-                                                            }}>
-                                                            Time:
-                                                        </Text>
-                                                    </View>
-
-                                                    <View
+                                        {/* Scrollable Table Rows */}
+                                        <ScrollView style={{ flex: 1 }}>
+                                            <FlatList
+                                                data={tripData}
+                                                keyExtractor={(item) => item.id.toString()}
+                                                renderItem={({ item, index }) => (
+                                                    <TouchableOpacity
                                                         style={{
-                                                            // flexDirection: 'row',
+                                                            marginBottom: 10,
+                                                            width: '100%',
+                                                            padding: 15,
+                                                            backgroundColor: 'white',
+                                                            borderBottomWidth: 1,
+                                                            borderColor: '#ddd',
+                                                            flexDirection: 'row',
                                                             justifyContent: 'space-between',
                                                             alignItems: 'center',
+                                                        }}
+                                                    >
+                                                        {/* Column 1: Serial No. */}
+                                                        <Text style={{ width: '10%', fontSize: 14, color: '#000' }}>{index + 1}</Text>
 
-                                                            width: '25%',
-                                                            // height: '100%',
-                                                            backgroundColor: '#85B2B5',
-                                                            padding: 5,
-                                                            borderRadius: 15,
-                                                        }}></View>
-                                                </TouchableOpacity>
-                                            )}
-                                        />
+                                                        {/* Column 2: State */}
+                                                        <Text style={{ width: '15%', fontSize: 14, color: '#000' }}>{item.state}</Text>
+
+                                                        {/* Column 3: Vehicle No. */}
+                                                        <Text style={{ width: '15%', fontSize: 14, color: '#000' }}>{item.vehicleNo}</Text>
+
+                                                        {/* Column 4: Address */}
+                                                        <Text style={{ width: '20%', fontSize: 14, color: '#000' }}>{item.address}</Text>
+
+                                                        {/* Column 5: Speed */}
+                                                        <Text style={{ width: '10%', fontSize: 14, color: '#000' }}>{item.speed} km/h</Text>
+
+                                                        {/* Column 6: Distance */}
+                                                        <Text style={{ width: '10%', fontSize: 14, color: '#000' }}>{item.distance} km</Text>
+
+                                                        {/* Column 7: GPS Location */}
+                                                        <TouchableOpacity
+                                                            style={{
+                                                                width: '20%',
+                                                                backgroundColor: '#85B2B5',
+                                                                padding: 5,
+                                                                borderRadius: 15,
+                                                                alignItems: 'center',
+                                                            }}
+                                                            onPress={() => {
+                                                                // Handle GPS Location press, e.g., open a map view
+                                                            }}
+                                                        >
+                                                            <Text style={{ color: 'white', fontSize: 12 }}>View Location</Text>
+                                                        </TouchableOpacity>
+                                                    </TouchableOpacity>
+                                                )}
+                                            />
+                                        </ScrollView>
                                     </View>
                                 </View>
-                                {/* Add your vehicle list items here */}
                             </View>
+
+
                         </View>
                     </ScrollView>
                 </KeyboardAvoidingView>

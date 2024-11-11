@@ -1,4 +1,4 @@
-// // App.js
+// App.js
 // import React, { useState } from 'react';
 // import { SafeAreaView, StatusBar, useColorScheme, StyleSheet } from 'react-native';
 // import Dashboard from './Dashboard';
@@ -25,13 +25,13 @@
 //   return (
 //     <SafeAreaView style={[styles.container, backgroundStyle]}>
 //       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-//       {/* <Dashboard onSelectVehicle={handleSelectVehicle} />
+//       <Dashboard onSelectVehicle={handleSelectVehicle} />
 //       {selectedLocation ? (
 //         <VehicleMap selectedVehicle={selectedVehicle} selectedLocation={selectedLocation} />
 //       ) : (
 //         <></>
-//       )} */}
-//       <Dash />
+//       )}
+//       {/* <Dash /> */}
 //     </SafeAreaView>
 //   );
 // };
