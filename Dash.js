@@ -17,6 +17,7 @@ const tripData = [
     { id: '2', label: 'Upcoming Trips', value: '10', color: '#316163' },
     { id: '3', label: 'Completed Trips', value: '5', color: '#316163' },
     { id: '4', label: 'Cancelled Trips', value: '0', color: '#316163' },
+    { id: '4', label: 'Cancelled Trips', value: '0', color: '#316163' },
 ];
 
 const Dash = () => {
