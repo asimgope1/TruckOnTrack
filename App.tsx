@@ -45,12 +45,24 @@
 // export default App;
 
 
-import { View, Text } from 'react-native';
-import React from 'react';
-import Navigation from './src/navigation/Navigation';
+// import { View, Text } from 'react-native';
+// import React from 'react';
+// import Navigation from './src/navigation/Navigation';
+
+// const App = () => {
+//   return <Navigation />;
+// };
+
+// export default App;
+import { View, Text } from 'react-native'
+import React from 'react'
 
 const App = () => {
-  return <Navigation />;
-};
+  return (
+    <View>
+      <Text>App</Text>
+    </View>
+  )
+}
 
-export default App;
+export default App
