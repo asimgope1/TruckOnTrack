@@ -23,7 +23,7 @@ const DashBoard = ({ navigation }) => {
                 {/* <Loader visible={loader} /> */}
 
                 <KeyboardAvoidingView
-                
+
                     behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                     style={{ flex: 1 }}>
 
